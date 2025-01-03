@@ -104,7 +104,9 @@ describe('Planets API Suite', () => {
             let payload = {
                 id: 7
             }
-		
+	 chai.request(server)
+              .post('/planet')
+              .send(payload)
               .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.have.property('id').eql(7);
